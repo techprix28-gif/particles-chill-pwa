@@ -12,25 +12,11 @@
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="apple-touch-icon" href="icon.png">
     <!-- tsParticles Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-</head>
-
-<body>
-    <div id="tsparticles"></div>
-    <script src="script.js?v=4"></script>
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-                    })
-                    .catch(err => {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-        }
+    console.log('ServiceWorker registration failed: ', err);
+    });
+    });
+    }
     </script>
-</body>
+    </body>
 
 </html>

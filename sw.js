@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zen-particles-v4';
+const CACHE_NAME = 'zen-particles-v5';
 const urlsToCache = [
     './',
     './index.html',
