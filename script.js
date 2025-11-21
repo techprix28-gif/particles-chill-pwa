@@ -13,13 +13,13 @@ tsParticles.load("tsparticles", {
       },
       onHover: {
         enable: true,
-        mode: "grab",
+        mode: ["grab", "remove"], // Connect AND remove
       },
       resize: true,
     },
     modes: {
       remove: {
-        quantity: 4, // Remove 4 particles per click
+        quantity: 1, // Remove 1 particle at a time on hover
       },
       grab: {
         distance: 200,
