@@ -12,11 +12,26 @@
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="apple-touch-icon" href="icon.png">
     <!-- tsParticles Bundle -->
-    console.log('ServiceWorker registration failed: ', err);
-    });
-    });
-    }
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+</head>
+
+<body>
+    <div id="tsparticles"></div>
+    <script src="script.js?v=5"></script>
+    <script>
+        // Cache Buster v6
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
     </script>
-    </body>
+</body>
 
 </html>
