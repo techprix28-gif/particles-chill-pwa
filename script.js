@@ -9,21 +9,28 @@ tsParticles.load("tsparticles", {
     events: {
       onClick: {
         enable: true,
-        mode: "repulse",
+        mode: ["push", "repulse", "bubble"], // Burst + Push away + Flash size
       },
       onHover: {
         enable: true,
-        mode: "grab",
+        mode: "grab", // Lines only on hover
       },
       resize: true,
     },
     modes: {
       push: {
-        quantity: 4,
+        quantity: 6, // Add particles
       },
       repulse: {
         distance: 200,
         duration: 0.4,
+      },
+      bubble: {
+        distance: 250,
+        size: 10, // Flash effect: particles grow momentarily
+        duration: 0.2,
+        opacity: 1,
+        color: "#ffffff"
       },
       grab: {
         distance: 200,
@@ -39,13 +46,7 @@ tsParticles.load("tsparticles", {
       value: "#ffffff",
     },
     links: {
-      enable: true,
-      distance: 150,
-      color: {
-        value: ["#00FFFF", "#FF00FF", "#FFFF00"] // Neon Cyan, Magenta, Yellow
-      },
-      opacity: 0.5,
-      width: 1,
+      enable: false, // Disabled by default, only on hover (grab)
     },
     move: {
       direction: "none",
@@ -54,7 +55,7 @@ tsParticles.load("tsparticles", {
         default: "bounce",
       },
       random: false,
-      speed: 1, // Slow and relaxing
+      speed: 1,
       straight: false,
     },
     number: {
