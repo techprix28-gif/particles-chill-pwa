@@ -9,44 +9,33 @@ tsParticles.load("tsparticles", {
     events: {
       onClick: {
         enable: true,
-        mode: ["push", "repulse", "bubble"], // Burst + Push away + Flash size
+        mode: "remove", // Remove particles on click/tap release
       },
       onHover: {
         enable: true,
-        mode: "grab", // Lines only on hover
+        mode: "grab",
       },
       resize: true,
     },
     modes: {
-      push: {
-        quantity: 6, // Add particles
-      },
-      repulse: {
-        distance: 200,
-        duration: 0.4,
-      },
-      bubble: {
-        distance: 250,
-        size: 10, // Flash effect: particles grow momentarily
-        duration: 0.2,
-        opacity: 1,
-        color: "#ffffff"
+      remove: {
+        quantity: 4, // Remove 4 particles per click
       },
       grab: {
         distance: 200,
         links: {
           opacity: 1,
-          color: "#00FFFF" // Cyan grab lines
+          color: "random" // Lines take random colors
         }
       }
     },
   },
   particles: {
     color: {
-      value: "#ffffff",
+      value: "random", // Each particle has a unique random color
     },
     links: {
-      enable: false, // Disabled by default, only on hover (grab)
+      enable: false,
     },
     move: {
       direction: "none",
@@ -63,7 +52,8 @@ tsParticles.load("tsparticles", {
         enable: true,
         area: 800,
       },
-      value: 100,
+      value: 50, // Start with fewer, let emitter fill
+      max: 150, // Cap total particles
     },
     opacity: {
       value: 0.8,
@@ -73,6 +63,22 @@ tsParticles.load("tsparticles", {
     },
     size: {
       value: { min: 1, max: 3 },
+    },
+  },
+  emitters: {
+    direction: "none",
+    rate: {
+      quantity: 1,
+      delay: 0.5, // Slowly add 1 particle every 0.5s
+    },
+    size: {
+      width: 100,
+      height: 100,
+      mode: "percent",
+    },
+    position: {
+      x: 50,
+      y: 50,
     },
   },
   detectRetina: true,
